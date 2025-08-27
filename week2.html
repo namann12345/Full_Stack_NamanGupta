@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Styling Showcase</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(244, 244, 244);
+            color: #333;
+        }
+
+        /* --- Part 1: 'About Us' Page Styles --- */
+
+        /* ID Selector with HEX color */
+        #main-heading {
+            color: #2c3e50;
+            text-align: center;
+            padding: 20px 0;
+            background-color: #ecf0f1;
+        }
+
+        /* Pseudo-element Selector for the heading's first letter */
+        #main-heading::first-letter {
+            color: #c0392b;
+            font-size: 1.2em;
+        }
+
+        /* Class Selector with HSL color */
+        .mission-statement {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: hsl(0, 0%, 100%);
+            border-left: 5px solid hsl(210, 50%, 50%);
+        }
+
+        /* Attribute Selector */
+        .team-member[data-title] {
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        /* Styling for links */
+        a {
+            color: #3498db;
+        }
+
+        /* Pseudo-class Selector with RGBA color for link hover effect */
+        a:hover {
+            color: rgba(41, 128, 185, 0.8);
+            text-decoration: none;
+        }
+
+
+        /* --- Part 2: Unordered Movie List Styles --- */
+
+        /* General styling for the movie list container */
+        .movie-list {
+            list-style: none; /* Removes default bullets */
+            padding: 0;
+        }
+
+        /* Styling for each movie item */
+        .movie-list li {
+            background-color: #fff;
+            border-left: 4px solid #3498db;
+            margin-bottom: 10px;
+            padding: 15px;
+            font-size: 1.1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        /* Adding a subtle hover effect for interactivity */
+        .movie-list li:hover {
+            transform: translateX(5px);
+        }
+
+        /* Unique styling for the favorite movie */
+        .movie-list .favorite-movie {
+            background-color: #fdf5e6; /* A distinct background color */
+            border-left-color: #e67e22;
+            font-weight: bold;
+            color: #d35400;
+        }
+
+
+        /* --- Part 3: Ordered City List Styles --- */
+
+        /* Resetting default list styles and initializing a counter */
+        .city-list {
+            list-style: none;
+            counter-reset: city-counter;
+            padding-left: 50px;
+        }
+
+        /* General styling for list items */
+        .city-list li {
+            counter-increment: city-counter;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        /* Custom styled numbers using a pseudo-element */
+        .city-list li::before {
+            content: counter(city-counter);
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+        }
+
+        /* Applying random styling to odd and even list items */
+        .city-list li:nth-child(even) {
+            color: #2c3e50;
+        }
+
+        .city-list li:nth-child(odd) {
+            color: #27ae60;
+        }
+
+        /* Special style for the third item in the list */
+        .city-list li:nth-child(3) {
+            font-style: italic;
+        }
+
+        /* Changing the marker color for the last item */
+        .city-list li:last-child::before {
+            background-color: #9b59b6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: About Us Page -->
+    <header>
+        <h1 id="main-heading">About Our Innovative Company</h1>
+    </header>
+    <main>
+        <section class="mission-statement">
+            <h2>Our Mission</h2>
+            <p>To redefine industry standards through cutting-edge technology and a commitment to our clients. We believe in creating solutions that are not only effective but also elegant and user-friendly.</p>
+        </section>
+
+        <section class="team">
+            <h2>Meet the Team</h2>
+            <div class="team-member" data-title="Chief Executive Officer">
+                <h3>John Doe</h3>
+                <p>The visionary leader of our company.</p>
+            </div>
+            <div class="team-member" data-title="Chief Technology Officer">
+                <h3>Jane Smith</h3>
+                <p>The brilliant mind behind our technology.</p>
+            </div>
+        </section>
+
+        <section class="external-links">
+            <h2>Follow Us</h2>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> |
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        </section>
+    </main>
+
+    <hr>
+
+    <!-- Section 2: Unordered Movie List -->
+    <section>
+        <h2>My Movie Watchlist</h2>
+        <ul class="movie-list">
+            <li>Inception</li>
+            <li class="favorite-movie">The Shawshank Redemption</li>
+            <li>The Dark Knight</li>
+            <li>Pulp Fiction</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- Section 3: Ordered City List -->
+    <section>
+        <h2>Top 5 Cities to Visit</h2>
+        <ol class="city-list">
+            <li>Paris</li>
+            <li>Kyoto</li>
+            <li>Rome</li>
+            <li>New York</li>
+            <li>Sydney</li>
+        </ol>
+    </section>
+
+</body>
+</html>
