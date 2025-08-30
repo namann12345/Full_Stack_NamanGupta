@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3: Layouts - Sidebar, Product Card & Flexbox Blog</title>
+  <style>
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: #f7f7f7;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .sidebar {
+      flex: 0 0 220px;
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    .sidebar h2 {
+      margin-bottom: 15px;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar li {
+      padding: 10px 0;
+      border-bottom: 1px solid #444;
+    }
+    .sidebar li a {
+      color: #fff;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .product-card {
+      max-width: 300px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .shoes-card{
+      max-width: 300px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .product-card button {
+      width: 100%;
+      padding: 10px;
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .product-card button:hover {
+      background: #005fa3;
+    }
+
+    .blog-layout {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .blog-post {
+      flex: 1 1 calc(33.333% - 20px);
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .blog-post h4 {
+      margin-bottom: 10px;
+    }
+    .blog-post p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        flex: none;
+        width: 100%;
+        text-align: center;
+      }
+      .blog-post {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h1>E-commerce & Blog Layout</h1>
+
+    <h2>Product Card</h2>
+    <div class="product-card">
+      <img src="https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw1da134af/images/Titan/Catalog/1825SL15_1.jpg?sw=600&sh=600" alt="Product Image">
+      <h3>Smart Watch</h3>
+      <p>Lightweight smartwatch with heart rate monitor and GPS tracking.</p>
+      <button>Buy Now</button>
+    </div>
+    <div>
+        <h1>Shoes</h1>
+        <div class="shoes-card"></div>
+        <img src="data:image/webp;base64,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" alt="shoes image">
+        <h3>shoes indian</h3>
+        <p>Lightweight and best grip no slippery.</p>
+        <button>Buy Now</button>
+    </div>
+
+    <h2>Blog Layout</h2>
+    <div class="blog-layout">
+      <div class="blog-post">
+        <h4>Post 1: UI Design Tips</h4>
+        <p>Learn modern UI techniques to create engaging user experiences.</p>
+      </div>
+      <div class="blog-post">
+        <h4>Post 2: Flexbox Guide</h4>
+        <p>Master Flexbox for responsive layouts with minimal CSS.</p>
+      </div>
+      <div class="blog-post">
+        <h4>Post 3: CSS Best Practices</h4>
+        <p>Clean and maintainable CSS tips for scalable projects.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
