@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Styling Showcase</title>
     <style>
-        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -15,9 +14,7 @@
             color: #333;
         }
 
-        /* --- Part 1: 'About Us' Page Styles --- */
 
-        /* ID Selector with HEX color */
         #main-heading {
             color: #2c3e50;
             text-align: center;
@@ -25,13 +22,11 @@
             background-color: #ecf0f1;
         }
 
-        /* Pseudo-element Selector for the heading's first letter */
         #main-heading::first-letter {
             color: #c0392b;
             font-size: 1.2em;
         }
 
-        /* Class Selector with HSL color */
         .mission-statement {
             margin: 20px 0;
             padding: 20px;
@@ -39,7 +34,6 @@
             border-left: 5px solid hsl(210, 50%, 50%);
         }
 
-        /* Attribute Selector */
         .team-member[data-title] {
             border: 1px solid #ddd;
             margin: 15px 0;
@@ -47,27 +41,22 @@
             background-color: #fff;
         }
 
-        /* Styling for links */
         a {
             color: #3498db;
         }
 
-        /* Pseudo-class Selector with RGBA color for link hover effect */
         a:hover {
             color: rgba(41, 128, 185, 0.8);
             text-decoration: none;
         }
 
 
-        /* --- Part 2: Unordered Movie List Styles --- */
 
-        /* General styling for the movie list container */
         .movie-list {
-            list-style: none; /* Removes default bullets */
+            list-style: none; 
             padding: 0;
         }
 
-        /* Styling for each movie item */
         .movie-list li {
             background-color: #fff;
             border-left: 4px solid #3498db;
@@ -78,30 +67,25 @@
             transition: transform 0.2s ease-in-out;
         }
         
-        /* Adding a subtle hover effect for interactivity */
         .movie-list li:hover {
             transform: translateX(5px);
         }
 
-        /* Unique styling for the favorite movie */
         .movie-list .favorite-movie {
-            background-color: #fdf5e6; /* A distinct background color */
+            background-color: #fdf5e6; 
             border-left-color: #e67e22;
             font-weight: bold;
             color: #d35400;
         }
 
 
-        /* --- Part 3: Ordered City List Styles --- */
 
-        /* Resetting default list styles and initializing a counter */
         .city-list {
             list-style: none;
             counter-reset: city-counter;
             padding-left: 50px;
         }
 
-        /* General styling for list items */
         .city-list li {
             counter-increment: city-counter;
             margin-bottom: 15px;
@@ -109,7 +93,6 @@
             position: relative;
         }
 
-        /* Custom styled numbers using a pseudo-element */
         .city-list li::before {
             content: counter(city-counter);
             position: absolute;
@@ -126,7 +109,6 @@
             font-weight: bold;
         }
 
-        /* Applying random styling to odd and even list items */
         .city-list li:nth-child(even) {
             color: #2c3e50;
         }
@@ -135,12 +117,10 @@
             color: #27ae60;
         }
 
-        /* Special style for the third item in the list */
         .city-list li:nth-child(3) {
             font-style: italic;
         }
 
-        /* Changing the marker color for the last item */
         .city-list li:last-child::before {
             background-color: #9b59b6;
         }
@@ -148,7 +128,6 @@
 </head>
 <body>
 
-    <!-- Section 1: About Us Page -->
     <header>
         <h1 id="main-heading">About Our Innovative Company</h1>
     </header>
@@ -179,7 +158,6 @@
 
     <hr>
 
-    <!-- Section 2: Unordered Movie List -->
     <section>
         <h2>My Movie Watchlist</h2>
         <ul class="movie-list">
@@ -192,7 +170,6 @@
 
     <hr>
 
-    <!-- Section 3: Ordered City List -->
     <section>
         <h2>Top 5 Cities to Visit</h2>
         <ol class="city-list">
